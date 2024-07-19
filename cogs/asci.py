@@ -1,8 +1,12 @@
 import discord
 from discord.ext import commands
 import pyfiglet
+import json
 
-class Textart(commands.Cog):
+with open('configs.json', 'r') as config_file:
+    config = json.load(config_file)
+
+class ascii(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -13,4 +17,4 @@ class Textart(commands.Cog):
         await ctx.reply(f"```\n{result}\n```")
 
 async def setup(bot):
-    await bot.add_cog(Textart(bot))
+    await bot.add_cog(ascii(bot))

@@ -56,10 +56,11 @@ plz leave a star on the repository
 
 # Testimonies
 
-![testimony](https://cdn.discordapp.com/attachments/1263283039329321022/1263847991895134208/image.png?ex=669bb9aa&is=669a682a&hm=931af2142a4db33b5044c6f6025358342f175cb92414cf631a6b264672614859&)
-![testimony](https://cdn.discordapp.com/attachments/1263283039329321022/1263848188436156488/image.png?ex=669bb9d9&is=669a6859&hm=96c405a5e55ed6b4e8d19e5ceebfd0675c2186fc1560db4bc63c9568bdef9a78&)
-![testimony](https://cdn.discordapp.com/attachments/1263283039329321022/1263848471690219520/image.png?ex=669bba1c&is=669a689c&hm=761b0c09c7a10964825dd49d3c9fbc0e21bfb57d966662d0a375c89598f39c2c&)
-![testimony](https://cdn.discordapp.com/attachments/1263283039329321022/1263850030465417248/image.png?ex=669bbb90&is=669a6a10&hm=1a923ce358a5b61536615b9f5c14a35f17bea7792ceaffc75a5d17f3cdcfd2a1&)
+<img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263847991895134208/image.png?ex=669bb9aa&is=669a682a&hm=931af2142a4db33b5044c6f6025358342f175cb92414cf631a6b264672614859&" alt="testimony">
+<img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263848188436156488/image.png?ex=669bb9d9&is=669a6859&hm=96c405a5e55ed6b4e8d19e5ceebfd0675c2186fc1560db4bc63c9568bdef9a78&" alt="testimony">
+<img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263848471690219520/image.png?ex=669bba1c&is=669a689c&hm=761b0c09c7a10964825dd49d3c9fbc0e21bfb57d966662d0a375c89598f39c2c&" alt="testimony">
+<img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263850030465417248/image.png?ex=669bbb90&is=669a6a10&hm=1a923ce358a5b61536615b9f5c14a35f17bea7792ceaffc75a5d17f3cdcfd2a1&" alt="testimony">
+
 
 # Contributors
 <a href="https://discord.com/users/627905328075505683"><img src="https://images.weserv.nl/?url=https://cdn.discordapp.com/avatars/627905328075505683/a_a8408b7d540869bbbfc2e02d1a41b2dc.gif&fit=cover&mask=circle&maxage=7d" alt="Avatar" style="width:50px;"></a>

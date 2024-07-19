@@ -16,7 +16,7 @@ class Help(commands.Cog):
         help_message = "Here are the available commands:\n ```markdown\n"
         for command, description in command_descriptions.items():
             help_message += f"{command}: {description}\n"
-        await ctx.send(help_message + "```\n```markdown\nCreds : Stabosa <creator> Mrbanto <brain-creator>```", reference=ctx.message)
+        await ctx.send(help_message + "```\n```markdown\nContributors : Stabosa <creator> Mrbanto <brain-creator>```", reference=ctx.message)
 
     @send_help_message.error
     async def handle_error(self, ctx, error):

@@ -11,6 +11,7 @@ gTTS==2.5.1
 idna==3.7
 multidict==6.0.5
 protobuf==5.27.2
+pyfiglet==1.0.2
 requests==2.32.3
 urllib3==2.2.2
 yarl==1.9.4

@@ -1,8 +1,7 @@
 # Boogian
 Best discord self bot (For fun) :D
 
-**IF YOU ARE GONNA USE THIS PLEASE READ "HOW TO USE" AND DONT TRY TO GET HELP FROM ME!!!!!
-**
+**IF YOU ARE GONNA USE THIS PLEASE READ "HOW TO USE" AND DONT TRY TO GET HELP FROM ME!!!!!**
 # How to setup
 
 This uses discord.py-self as well as many more python libs so your gonna need [python](https://www.python.org/) as well as [ollama](ollama.ai) and download llama3 (for the ai)

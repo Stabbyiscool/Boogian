@@ -63,7 +63,8 @@ plz leave a star on the repository
   <img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263850030465417248/image.png?ex=669bbb90&is=669a6a10&hm=1a923ce358a5b61536615b9f5c14a35f17bea7792ceaffc75a5d17f3cdcfd2a1&" alt="testimony 4" style="width: 24%;">
   <img src="https://cdn.discordapp.com/attachments/1242389019061387315/1263854160822927421/image.png?ex=669bbf69&is=669a6de9&hm=c7cbaa273b4ebbfe8f9ae39274564b9e312ada6c5648ead071783de3e315013c&" alt="testimony 5" style="width: 24%;">
   <img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263860743044861982/image.png?ex=669bc58a&is=669a740a&hm=4e206451d2ea9b27e647b3db84b6ba60167fc9b27e93c89011b57387df941b8c&" alt="testimony 6" style="width: 24%;">
-  <img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263862262746054656/image.png?ex=669bc6f4&is=669a7574&hm=e4ddb261762a6c8ff66130fa542b767f2df6ac037a45821d68dfd73466453b3e&" alt="testimony 6" style="width: 24%;">
+  <img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263862262746054656/image.png?ex=669bc6f4&is=669a7574&hm=e4ddb261762a6c8ff66130fa542b767f2df6ac037a45821d68dfd73466453b3e&" alt="testimony 7" style="width: 24%;">
+  <img src="https://cdn.discordapp.com/attachments/1263283039329321022/1263865734908346408/image.png?ex=669bca30&is=669a78b0&hm=a59055e5285de3000bf3903e8369b25e06374afc510737bc4b63a6bf814c9b21&" alt="testimony 8" style="width: 24%;">
 </p>
 
 # Contributors

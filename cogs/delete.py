@@ -1,7 +1,5 @@
-import aiohttp
-from discord.ext import commands
-from io import BytesIO
 import discord
+from discord.ext import commands
 import json
 
 with open('configs.json', 'r') as config_file:
@@ -14,23 +12,23 @@ class Delete(commands.Cog):
     @commands.command(name='delete')
     @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
     async def delete(self, ctx, message_id: int):
-        su_role = discord.utils.get(ctx.guild.roles, name='SU')
-        if su_role not in ctx.author.roles:
-            await ctx.send("Ur not su")
+        if str(ctx.author.id) not in config['SU']:
+            await ctx.send("Ur not su bro")
             return
 
         try:
-            message = await ctx.fetch_message(message_id)
+            message = await ctx.channel.fetch_message(message_id)
             
             if message.author == self.bot.user:
                 await message.delete()
-                await ctx.send("Message deleted bruh")
+                await ctx.send(f"deleted {message_id}")
             else:
-                await ctx.send("The message was not sent by this bot ya big dummy")
+                await ctx.send("I didnt send that :cry:")
+        
         except discord.NotFound:
-            await ctx.send("Message not found lil bro")
+            await ctx.send("cant find the message")
         except discord.Forbidden:
-            await ctx.send("I do not have permission to delete this message bruh")
+            await ctx.send("cant")
         except discord.HTTPException as e:
             await ctx.send(f"An error occurred: {e}")
 
@@ -39,7 +37,7 @@ class Delete(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown):
             return
         else:
-            await ctx.send(f"An error occurred: {error}")
+            await ctx.send("An error occurred while processing the command.")
 
 async def setup(bot):
     await bot.add_cog(Delete(bot))

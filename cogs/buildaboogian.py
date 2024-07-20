@@ -14,7 +14,7 @@ class buildaboogian(commands.Cog):
     @commands.command(name='buildaboogian')
     @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
     async def eight_ball(self, ctx):
-        await ctx.reply('[Boogian offical repo](https://github.com/Stabbyiscool/Boogian)')
+        await ctx.reply('[Boogian offical repo](https://github.com/Stabbyiscool/Boogian) give it a star and ill kiss u.')
 
     @eight_ball.error
     async def handle_error(self, ctx, error):

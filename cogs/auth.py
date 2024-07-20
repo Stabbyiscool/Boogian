@@ -31,7 +31,7 @@ class Auth(commands.Cog):
         user_id = str(user.id)
         if user_id not in config['AUTHORIZED_USERS']:
             config['AUTHORIZED_USERS'].append(user_id)
-            with open('/DATA/Discordbots/selfbot/Boogianv5/configs.json', 'w') as config_file:
+            with open('configs.json', 'w') as config_file:
                 json.dump(config, config_file, indent=4)
             reload_config()
             await ctx.send(f"User {user.name} has been authorized. Action pending for next restart of bot", reference=ctx.message)
@@ -45,7 +45,7 @@ class Auth(commands.Cog):
         user_id = str(user.id)
         if user_id in config['AUTHORIZED_USERS']:
             config['AUTHORIZED_USERS'].remove(user_id)
-            with open('/DATA/Discordbots/selfbot/Boogianv5/configs.json', 'w') as config_file:
+            with open('configs.json', 'w') as config_file:
                 json.dump(config, config_file, indent=4)
             reload_config()
             await ctx.send(f"User {user.name} has been unauthorized. Action pending for next restart of bot", reference=ctx.message)
@@ -59,7 +59,7 @@ class Auth(commands.Cog):
         user_id = str(user.id)
         if user_id not in config['BANNED_USERS']:
             config['BANNED_USERS'].append(user_id)
-            with open('/DATA/Discordbots/selfbot/Boogianv5/configs.json', 'w') as config_file:
+            with open('configs.json', 'w') as config_file:
                 json.dump(config, config_file, indent=4)
             reload_config()
             await ctx.send(f"User {user.name} has been banned. Action pending for next restart of bot.", reference=ctx.message)
@@ -73,7 +73,7 @@ class Auth(commands.Cog):
         user_id = str(user.id)
         if user_id in config['BANNED_USERS']:
             config['BANNED_USERS'].remove(user_id)
-            with open('/DATA/Discordbots/selfbot/Boogianv5/configs.json', 'w') as config_file:
+            with open('configs.json', 'w') as config_file:
                 json.dump(config, config_file, indent=4)
             reload_config()
             await ctx.send(f"User {user.name} has been unbanned. Action pending for next restart of bot.", reference=ctx.message)

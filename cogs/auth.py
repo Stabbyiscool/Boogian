@@ -3,6 +3,7 @@ from discord.ext import commands
 import discord
 import json
 import functools
+from discord.ext.commands import MissingRequiredArgument
 
 def load_config():
     with open('configs.json', 'r') as config_file:

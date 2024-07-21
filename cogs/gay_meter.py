@@ -1,6 +1,7 @@
 import random
 from discord.ext import commands
 import json
+from discord.ext.commands import MissingRequiredArgument
 
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)

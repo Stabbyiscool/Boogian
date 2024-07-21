@@ -4,6 +4,8 @@ import aiohttp
 import json
 import tempfile
 import os
+from discord.ext.commands import MissingRequiredArgument
+
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)
 

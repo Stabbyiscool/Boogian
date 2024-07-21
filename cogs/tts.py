@@ -4,6 +4,7 @@ from io import BytesIO
 import discord
 import json
 from gtts import gTTS
+from discord.ext.commands import MissingRequiredArgument
 
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)

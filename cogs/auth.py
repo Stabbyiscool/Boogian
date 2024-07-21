@@ -117,7 +117,7 @@ class Auth(commands.Cog):
         for user_id, reason in banned_users.items():
             user = await self.bot.fetch_user(user_id)
             if user:
-                banned_names.append(f"{user.name} ({user_id}) - Reason: {reason}")
+                banned_names.append(f"{user.name} ({user_id})")
         
         if banned_names:
             await ctx.send(f"Banned Users: {', '.join(banned_names)}", reference=ctx.message)

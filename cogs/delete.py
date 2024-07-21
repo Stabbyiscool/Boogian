@@ -21,7 +21,6 @@ class Delete(commands.Cog):
             
             if message.author == self.bot.user:
                 await message.delete()
-                await ctx.send(f"deleted {message_id}")
             else:
                 await ctx.send("I didnt send that :cry:")
         

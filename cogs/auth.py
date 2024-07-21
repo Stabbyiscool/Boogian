@@ -169,6 +169,8 @@ class Auth(commands.Cog):
             return
         elif isinstance(error, commands.CheckFailure):
             await ctx.send("You are noot SU.")
+        elif isinstance(error, MissingRequiredArgument):
+            await ctx.send("A parameter is missing!")
         else:
             await ctx.send(f"An error occurred: {str(error)}")
 

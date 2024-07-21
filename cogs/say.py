@@ -38,9 +38,11 @@ class Say(commands.Cog):
     async def handle_error(self, ctx: commands.Context, error: commands.CommandError):
         if isinstance(error, commands.CommandOnCooldown):
             return
+        elif isinstance(error, MissingRequiredArgument):
+            await ctx.send("A parameter is missing") 
         else:
-            logging.error(f"An error occurred: {error}")
-            await ctx.send(content='An error occurred.', reference=ctx.message)
+            await ctx.send("Command no workey ping stabby")
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Say(bot))

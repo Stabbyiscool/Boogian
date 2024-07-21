@@ -79,9 +79,11 @@ class Ask(commands.Cog):
     @handle_ask.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You are on cooldown. Please wait {error.retry_after:.2f} seconds.")
+            return
+        elif isinstance(error, MissingRequiredArgument):
+            await ctx.send("A parameter is missing") 
         else:
-            await ctx.send("An unexpected error occurred.")
+            await ctx.send("Command no workey ping stabby")
 
 async def setup(bot):
     await bot.add_cog(Ask(bot))

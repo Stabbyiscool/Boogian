@@ -22,6 +22,11 @@ class Help(commands.Cog):
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             return
+        elif isinstance(error, MissingRequiredArgument):
+            await ctx.send("A parameter is missing") 
+        else:
+            await ctx.send("Command no workey ping stabby")
+
 
 async def setup(bot):
     await bot.add_cog(Help(bot))

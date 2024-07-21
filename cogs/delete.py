@@ -35,8 +35,11 @@ class Delete(commands.Cog):
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             return
+        elif isinstance(error, MissingRequiredArgument):
+            await ctx.send("A parameter is missing") 
         else:
-            await ctx.send("An error occurred while processing the command.")
+            await ctx.send("Command no workey ping stabby")
+
 
 async def setup(bot):
     await bot.add_cog(Delete(bot))

@@ -168,7 +168,7 @@ class Auth(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown):
             return
         elif isinstance(error, commands.CheckFailure):
-            await ctx.send("You are not SU.")
+            await ctx.send("You are noot SU.")
         else:
             await ctx.send(f"An error occurred: {str(error)}")
 

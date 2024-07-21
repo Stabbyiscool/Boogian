@@ -126,7 +126,7 @@ class Auth(commands.Cog):
 
     @commands.command(name='sulist')
     @commands.check(is_su)
-    async def handle_banlist(self, ctx):
+    async def handle_sulist(self, ctx):
         config = get_config()
         SU_users = config['SU']
         SU_names = []
@@ -148,6 +148,7 @@ class Auth(commands.Cog):
     @handle_standing.error
     @handle_authlist.error
     @handle_banlist.error
+    @handle_sulist.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             return

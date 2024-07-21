@@ -3,6 +3,8 @@ from discord.ext import commands
 import discord
 import json
 import functools
+import os
+import sys
 from discord.ext.commands import MissingRequiredArgument
 
 def load_config():
@@ -156,6 +158,11 @@ class Auth(commands.Cog):
         else:
             await ctx.send(f"User ID {user_id} is not banned.", reference=ctx.message)
 
+    @commands.command(name='restart')
+    @commands.check(is_su)
+    async def handle_restart(self, ctx):
+        await ctx.send("Restarting bot...")
+        os.execv(sys.executable, ['python'] + sys.argv)
     @handle_auth.error
     @handle_unauth.error
     @handle_ban.error
@@ -165,11 +172,12 @@ class Auth(commands.Cog):
     @handle_banlist.error
     @handle_sulist.error
     @handle_baninfo.error
+    @handle_restart.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             return
         elif isinstance(error, commands.CheckFailure):
-            await ctx.send("You are noot SU.")
+            await ctx.send("You are not SU.")
         elif isinstance(error, MissingRequiredArgument):
             await ctx.send("A parameter is missing!")
         else:

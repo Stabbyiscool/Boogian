@@ -1,0 +1,36 @@
+{
+    "TOKEN": "your_token_here",
+    "AUTHORIZED_USERS": [
+      "userid2",
+      "userid1"
+    ],
+    "BANNED_USERS": {
+      "userid1": "Reason for banning user 1",
+      "userid2": "Reason for banning user 2"
+    },
+    "SU": [
+      "userid2",
+      "user1"
+    ],
+    "AI_TAG": "||AI|| ",
+    "COMMAND_DESCRIPTIONS": {
+      "b.ping": "Responds with \"pong\".",
+      "b.ask <prompt>": "Asks a question to the AI.",
+      "b.cat": "Fetches a random maka picture.",
+      "b.dog": "Fetches a random dog picture.",
+      "b.8ball <question>": "Asks the magic 8 ball a question.",
+      "b.say <message>": "Repeats the message (authorized users only).",
+      "b.help": "Shows this help message.",
+      "b.stabosa": "Fetches a random picture of stabosa.",
+      "b.gay <user>": "Generates a gayness percentage for the mentioned user.",
+      "b.tts <message>": "Generates a tts message.",
+      "b.pp <user>": "Generates a random pp size",
+      "b.buildaboogian": "Offical github repo"
+    },
+    "COOLDOWN_TIME": 4,
+    "CENSOR_WORDS": [
+      "word",
+      "word"
+    ]
+  }
+  

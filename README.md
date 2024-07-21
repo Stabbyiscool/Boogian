@@ -12,7 +12,7 @@ First, we're gonna clone this using this command in terminal (YOU NEED GIT)
 git clone https://github.com/Stabbyiscool/Boogian.git
 ```
 
-Then, you're gonna wanna download the json template from [here](https://file.io/fUFfquXzqonb) and configure it with all of the things u need.
+Then, you're gonna wanna change the name of (CHANGEMYNAMETO"configs.json".json) to configs.json and configure it with all of the things u need.
 
 Before we install the libs from 'requirements.txt', let's set up a Python virtual environment. This is important cause it keeps all your project dependencies isolated.
 

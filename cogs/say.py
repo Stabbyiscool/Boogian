@@ -40,6 +40,7 @@ class Say(commands.Cog):
             return
         elif isinstance(error, MissingRequiredArgument):
             await ctx.send("A parameter is missing") 
+            return
         else:
             await ctx.send("Command no workey ping stabby")
 

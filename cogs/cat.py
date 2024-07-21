@@ -34,8 +34,8 @@ class Cat(commands.Cog):
             return
         elif isinstance(error, MissingRequiredArgument):
             await ctx.send("A parameter is missing") 
+            return
         else:
             await ctx.send("Command no workey ping stabby")
-
 async def setup(bot):
     await bot.add_cog(Cat(bot))

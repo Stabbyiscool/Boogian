@@ -100,7 +100,7 @@ class Auth(commands.Cog):
         for user_id in authorized_users:
             user = await self.bot.fetch_user(user_id)
             if user:
-                authorized_names.append(f"{user.name} ({user_id})")
+                authorized_names.append(f"{user.name}")
         
         if authorized_names:
             await ctx.send(f"Authorized Users: {', '.join(authorized_names)}", reference=ctx.message)
@@ -134,7 +134,7 @@ class Auth(commands.Cog):
         for user_id in SU_users:
             user = await self.bot.fetch_user(user_id)
             if user:
-                SU_names.append(f"{user.name} ({user_id})")
+                SU_names.append(f"{user.name}")
         
         if SU_names:
             await ctx.send(f"SU Users: {', '.join(SU_names)}", reference=ctx.message)

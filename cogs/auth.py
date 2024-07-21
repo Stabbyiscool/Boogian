@@ -124,6 +124,23 @@ class Auth(commands.Cog):
         else:
             await ctx.send("There are no banned users.", reference=ctx.message)
 
+    @commands.command(name='sulist')
+    @commands.check(is_su)
+    async def handle_banlist(self, ctx):
+        config = get_config()
+        SU_users = config['SU']
+        SU_names = []
+
+        for user_id in SU_users:
+            user = await self.bot.fetch_user(user_id)
+            if user:
+                SU_names.append(user.name)
+        
+        if SU_names:
+            await ctx.send(f"SU Users: {', '.join(SU_names)}", reference=ctx.message)
+        else:
+            await ctx.send("There are no SU users.", reference=ctx.message)
+
     @handle_auth.error
     @handle_unauth.error
     @handle_ban.error

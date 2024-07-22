@@ -18,9 +18,9 @@ class coin(commands.Cog):
     async def handle_coin(self, ctx):
         coinflip = random.randint(0,1)
         if coinflip == 1:
-            await ctx.send("Heads")
+            await ctx.send("Heads", reference=ctx.message)
         elif coinflip == 0:
-            await ctx.send("tails!")
+            await ctx.send("tails!", reference=ctx.message)
 
 
     @handle_coin.error
@@ -28,10 +28,10 @@ class coin(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown):
             return
         elif isinstance(error, MissingRequiredArgument):
-            await ctx.send("A parameter is missing") 
+            await ctx.send("A parameter is missing", reference=ctx.message) 
             return
         else:
-            await ctx.send("Command no workey ping stabby")
+            await ctx.send("Command no workey ping stabby", reference=ctx.message)
 
 
 async def setup(bot):

@@ -32,10 +32,10 @@ class GayMeter(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown):
             return
         elif isinstance(error, MissingRequiredArgument):
-            await ctx.send("A parameter is missing") 
+            await ctx.send("A parameter is missing", reference=ctx.message) 
             return
         else:
-            await ctx.send("Command no workey ping stabby")
+            await ctx.send("Command no workey ping stabby", reference=ctx.message)
 
 async def setup(bot):
     await bot.add_cog(GayMeter(bot))

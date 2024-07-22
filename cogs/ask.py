@@ -52,7 +52,7 @@ class Ask(commands.Cog):
 
         self.conversations[user_id].append({'role': 'user', 'content': prompt})
 
-        typing_message = await ctx.reply("Boogian is typing...")
+        typing_message = await ctx.send("Boogian is typing...", reference=ctx.message)
 
         try:
             response = await asyncio.to_thread(ollama.chat, model='llama3', messages=self.conversations[user_id])

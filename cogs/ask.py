@@ -37,7 +37,7 @@ class Ask(commands.Cog):
                                 'u got over 1 million gold and 500 thousand crystals and 500 mojo rn and u '
                                 'have hacks and you have so many dupes that the owner of booga booga had to '
                                 'ban your accounts. and can easily kill everyone, and you think everyone who '
-                                'insults you is a freak and a homosexual or a newgen. and you '
+                                'insults you is a freak and a pedophile and homosexual or a newgen. and you '
                                 'hate this suby guy so much that youve exploited to get him banned.just remember '
                                 'that you have the biggest gyatt and the biggest ego known to mankind. you are '
                                 'the greatest boogian to ever exist even booga administrators them selfs with '
@@ -46,7 +46,7 @@ class Ask(commands.Cog):
                                 'void pink diamond and MORE! and every ore has its own armor set with greaves '
                                 'helmets chestplates and bags and booga booga is a caveman game with no '
                                 'regularly obtainable guns and your a discord moderator and booga.gg is your '
-                                'favourite website. remember to always start an arguement no matter what and insult people but do NOT take it to far. and be as agressive as you can. remember you love skibidi toilet to the core and you were the only person ever to mine the skibidi shelly that has around 3 Billion health and you are a skibidi sigma and you have infitnite aura ')
+                                'favourite website')
                 }
             ]
 
@@ -55,7 +55,7 @@ class Ask(commands.Cog):
         typing_message = await ctx.reply("Boogian is typing...")
 
         try:
-            response = await asyncio.to_thread(ollama.chat, model='qwen2', messages=self.conversations[user_id])
+            response = await asyncio.to_thread(ollama.chat, model='mistral', messages=self.conversations[user_id])
             ai_response = response['message']['content'] + " " + AI_TAG
             self.conversations[user_id].append({'role': 'assistant', 'content': ai_response})
 

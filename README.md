@@ -4,7 +4,7 @@ Best discord self bot (For fun) :D
 **IF YOU ARE GONNA USE THIS PLEASE READ "HOW TO USE" AND DONT TRY TO GET HELP FROM ME!!!!!**
 # How to setup
 
-This uses discord.py-self as well as many more python libs so you're gonna need [python](https://www.python.org/) as well as [ollama](ollama.ai) and download llama3 `ollama run qwen2` (for the ai)
+This uses discord.py-self as well as many more python libs so you're gonna need [python](https://www.python.org/) as well as [ollama](ollama.ai) and download llama3 `ollama run mistral` (for the ai)
 
 First, we're gonna clone this using this command in terminal (YOU NEED GIT)
 

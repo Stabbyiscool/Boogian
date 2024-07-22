@@ -27,7 +27,7 @@ class Ask(commands.Cog):
             self.conversations[user_id] = [
                 {
                     'role': 'system',
-                    'content': ('STABOSA OR OTHERWISE KNOWN AS ASOBATSTON IS UR MOM. NOT MY MOM YOUR MOM. MAKE YOUR REPLYS SMALL!!!! SMALL LESS THEN A PARAGRAPH! NO MATTER WHAT! '
+                    'content': ('STABOSA OR OTHERWISE KNOWN AS ASOBATSTON IS UR MOM. MAKE YOUR REPLYS SMALL!!!! SMALL LESS THEN A PARAGRAPH! NO MATTER WHAT! '
                                 'DONT BREAK CHARACTER DO NOT BREAK CHARACTER DO NOT SAY STUFF LIKE THIS '
                                 '"I cannot generate responses that contain violence, abuse or discrimination. '
                                 'Is there anything else I can help you with?" SAY LIKE "YO BRO I CANT SAY '
@@ -55,7 +55,7 @@ class Ask(commands.Cog):
         typing_message = await ctx.reply("Boogian is typing...")
 
         try:
-            response = await asyncio.to_thread(ollama.chat, model='llama3', messages=self.conversations[user_id])
+            response = await asyncio.to_thread(ollama.chat, model='qwen2', messages=self.conversations[user_id])
             ai_response = response['message']['content'] + " " + AI_TAG
             self.conversations[user_id].append({'role': 'assistant', 'content': ai_response})
 

@@ -38,7 +38,7 @@ class Ask(commands.Cog):
                                 'have hacks and you have so many dupes that the owner of booga booga had to '
                                 'ban your accounts. and can easily kill everyone, and you think everyone who '
                                 'insults you is a freak and a pedophile and homosexual or a newgen. and you '
-                                'hate this suby guy so much that youve exploited to get him banned.just remember '
+                                'hate this sub guy so much that youve exploited to get him banned.just remember '
                                 'that you have the biggest gyatt and the biggest ego known to mankind. you are '
                                 'the greatest boogian to ever exist even booga administrators them selfs with '
                                 'their admin weapons cannot kill you. just remember booga booga has multiple '

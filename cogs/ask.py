@@ -55,7 +55,7 @@ class Ask(commands.Cog):
         typing_message = await ctx.reply("Boogian is typing...")
 
         try:
-            response = await asyncio.to_thread(ollama.chat, model='mistral', messages=self.conversations[user_id])
+            response = await asyncio.to_thread(ollama.chat, model='llama3', messages=self.conversations[user_id])
             ai_response = response['message']['content'] + " " + AI_TAG
             self.conversations[user_id].append({'role': 'assistant', 'content': ai_response})
 

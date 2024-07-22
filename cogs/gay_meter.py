@@ -15,7 +15,7 @@ class GayMeter(commands.Cog):
     async def handle_gay_meter(self, ctx):
         if ctx.message.mentions:
             target_user = ctx.message.mentions[0]
-            special_users = [627905328075505683, 1085537701035524187]
+            special_users = [627905328075505683, 1085537701035524187, 1028248062130409572]
 
             if target_user.id in special_users:
                 gayness = random.randint(1, 10)

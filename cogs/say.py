@@ -27,16 +27,13 @@ class Say(commands.Cog):
         )
         try:
             response = ollama.generate(
-                model="tinyllama",
+                model="llama3",
                 prompt=prompt
             )
             logging.info(f"Raw AI Response: {response}")
             response_text = response.get('response', '').strip()
-            
-            first_line = response_text.splitlines()[0].strip().upper()
-            logging.info(f"AI Response Text: {first_line}")
-            
-            return first_line == "Y"
+            logging.info(f"AI Response Text: {response_text}")
+            return response_text.upper() == "Y"
         except Exception as e:
             logging.error(f"Error with AI censor: {e}")
             return False
@@ -53,7 +50,7 @@ class Say(commands.Cog):
                 await ctx.send(content=say_content, reference=ctx.message)
             else:
                 logging.info("AI censored the message")
-                await ctx.send(content='No bad words plz :D', reference=ctx.message)
+                await ctx.send(content='No bad words plz :D (The ai censor is in BETA.)', reference=ctx.message)
         else:
             logging.info("User is not authorized")
             await ctx.send(content='Go away noob D8<', reference=ctx.message)

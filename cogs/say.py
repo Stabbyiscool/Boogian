@@ -27,7 +27,7 @@ class Say(commands.Cog):
         )
         try:
             response = ollama.generate(
-                model="llama3",
+                model="llama3.1",
                 prompt=prompt
             )
             logging.info(f"Raw AI Response: {response}")

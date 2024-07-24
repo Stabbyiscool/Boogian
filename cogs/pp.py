@@ -19,7 +19,7 @@ class PP(commands.Cog):
             restricted_server_id = 844925500757508127
 
             if ctx.guild.id == restricted_server_id:
-                await ctx.send(file=discord.File(r'stop.mov'))
+                await ctx.send(file=discord.File(r'stop.mov'), reference=ctx.message)
                 return
         
         if user is None:

@@ -23,14 +23,15 @@ class Say(commands.Cog):
             "You are a censor bot now. I'm going to give you a sentence to censor. "
             "It can't have any slurs, anything that says 'under tos' or any number under 13 so we don't get banned. "
             "Curse words are allowed. Only respond with a Y or an N. "
-            f"Now here is your prompt: {text}"
+            "Now here is your prompt: " + text
         )
         try:
             response = ollama.generate(
                 model="llama3",
                 prompt=prompt
             )
-            return response.strip().upper() == "Y"
+            response_text = response.get('text', '').strip()
+            return response_text.upper() == "Y"
         except Exception as e:
             logging.error(f"Error with AI censor: {e}")
             return False

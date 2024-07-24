@@ -30,8 +30,9 @@ class Say(commands.Cog):
                 model="llama3",
                 prompt=prompt
             )
+            logging.info(f"Raw AI Response: {response}")
             response_text = response.get('text', '').strip()
-            logging.info(f"AI Response: {response_text}")
+            logging.info(f"AI Response Text: {response_text}")
             return response_text.upper() == "Y"
         except Exception as e:
             logging.error(f"Error with AI censor: {e}")

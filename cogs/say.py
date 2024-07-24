@@ -21,7 +21,7 @@ class Say(commands.Cog):
     def ai_censor(self, text: str) -> bool:
         prompt = (
             "You are a censor bot now. I'm going to give you a sentence to censor. "
-            "It can't have any slurs, anything that says 'under tos' or any number under 13 so we don't get banned. "
+            "The sentence must not contain any slurs, any references to 'under tos', or any number under 13. "
             "Curse words are allowed. Only respond with a Y or an N. "
             "Now here is your prompt: " + text
         )
@@ -31,6 +31,7 @@ class Say(commands.Cog):
                 prompt=prompt
             )
             response_text = response.get('text', '').strip()
+            logging.info(f"AI Response: {response_text}")
             return response_text.upper() == "Y"
         except Exception as e:
             logging.error(f"Error with AI censor: {e}")

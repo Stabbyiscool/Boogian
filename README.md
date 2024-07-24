@@ -3,7 +3,7 @@
 </p>
 
 
-# Boogian
+# Boogian V6
 Best discord self bot (For fun) :D
 
 **IF YOU ARE GONNA USE THIS PLEASE READ "HOW TO USE" AND DONT TRY TO GET HELP FROM ME!!!!!**

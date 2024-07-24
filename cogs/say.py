@@ -31,7 +31,7 @@ class Say(commands.Cog):
                 prompt=prompt
             )
             logging.info(f"Raw AI Response: {response}")
-            response_text = response.get('text', '').strip()
+            response_text = response.get('response', '').strip()
             logging.info(f"AI Response Text: {response_text}")
             return response_text.upper() == "Y"
         except Exception as e:

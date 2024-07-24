@@ -32,8 +32,11 @@ class Say(commands.Cog):
             )
             logging.info(f"Raw AI Response: {response}")
             response_text = response.get('response', '').strip()
-            logging.info(f"AI Response Text: {response_text}")
-            return response_text.upper() == "Y"
+            
+            first_line = response_text.splitlines()[0].strip().upper()
+            logging.info(f"AI Response Text: {first_line}")
+            
+            return first_line == "Y"
         except Exception as e:
             logging.error(f"Error with AI censor: {e}")
             return False

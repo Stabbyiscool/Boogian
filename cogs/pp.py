@@ -19,7 +19,7 @@ class PP(commands.Cog):
             restricted_server_id = 844925500757508127
 
             if ctx.guild.id == restricted_server_id:
-                await ctx.send("This command is against the rules of this server and cannot be used! :cry:")
+                await ctx.send(file=discord.File(r'stop.mov'))
                 return
         
         if user is None:

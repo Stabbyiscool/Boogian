@@ -23,7 +23,7 @@ class Say(commands.Cog):
             "You are a censor bot now. I'm going to give you a sentence to censor. "
             "It can't have any slurs, anything that says 'under tos' or any number under 13 so we don't get banned. "
             "Curse words are allowed. Only respond with a Y or an N. "
-            "Now here is your prompt: " + text
+            f"Now here is your prompt: {text}"
         )
         try:
             response = ollama.generate(

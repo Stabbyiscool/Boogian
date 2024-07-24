@@ -10,6 +10,7 @@ with open('configs.json', 'r') as config_file:
 
 AUTHORIZED_USERS = {int(user_id) for user_id in config['AUTHORIZED_USERS']}
 BANNED_USERS = {int(user_id) for user_id in config['BANNED_USERS']}
+CENSORED_SERVERS = {int(server_id) for server_id in config.get('CENSORED_SERVERS', [])}
 
 logging.basicConfig(level=logging.INFO)
 
@@ -30,20 +31,22 @@ class Say(commands.Cog):
                 model="llama3",
                 prompt=prompt
             )
-            logging.info(f"Raw AI Response: {response}")
             response_text = response.get('response', '').strip()
-            logging.info(f"AI Response Text: {response_text}")
             return response_text.upper() == "Y"
         except Exception as e:
-            logging.error(f"Error with AI censor: {e}")
             return False
 
     @commands.command(name='say')
     @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
     async def handle_say(self, ctx: commands.Context, *, say_content: str):
         user_id = ctx.message.author.id
+        server_id = ctx.guild.id if ctx.guild else None
 
         if user_id in AUTHORIZED_USERS:
+            if server_id not in CENSORED_SERVERS:
+                await ctx.send(content=say_content, reference=ctx.message)
+                return
+
             loop = ctx.bot.loop
             result = await loop.run_in_executor(self.executor, self.ai_censor, say_content)
             if result:

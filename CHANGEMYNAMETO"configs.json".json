@@ -28,9 +28,9 @@
       "b.buildaboogian": "Offical github repo"
     },
     "COOLDOWN_TIME": 4,
-    "CENSOR_WORDS": [
-      "word",
-      "word"
+    "CENSORED_SERVERS": [
+      "your_censored_server_id_1",
+      "your_censored_server_id_2"
     ]
   }
   

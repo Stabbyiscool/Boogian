@@ -10,7 +10,6 @@ with open('configs.json', 'r') as config_file:
 
 AUTHORIZED_USERS = {int(user_id) for user_id in config['AUTHORIZED_USERS']}
 BANNED_USERS = {int(user_id) for user_id in config['BANNED_USERS']}
-CENSOR_WORDS = set(config['CENSOR_WORDS'])
 
 logging.basicConfig(level=logging.INFO)
 
@@ -18,10 +17,6 @@ class Say(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=3)
-
-    def contains_censored_words(self, text: str) -> bool:
-        lower_text = text.lower()
-        return any(word.lower() in lower_text for word in CENSOR_WORDS)
 
     def ai_censor(self, text: str) -> bool:
         prompt = (
@@ -46,16 +41,12 @@ class Say(commands.Cog):
         user_id = ctx.message.author.id
 
         if user_id in AUTHORIZED_USERS:
-            if not self.contains_censored_words(say_content):
-                loop = ctx.bot.loop
-                result = await loop.run_in_executor(self.executor, self.ai_censor, say_content)
-                if result:
-                    await ctx.send(content=say_content, reference=ctx.message)
-                else:
-                    logging.info("AI censored the message")
-                    await ctx.send(content='No bad words plz :D', reference=ctx.message)
+            loop = ctx.bot.loop
+            result = await loop.run_in_executor(self.executor, self.ai_censor, say_content)
+            if result:
+                await ctx.send(content=say_content, reference=ctx.message)
             else:
-                logging.info("Censored words detected")
+                logging.info("AI censored the message")
                 await ctx.send(content='No bad words plz :D', reference=ctx.message)
         else:
             logging.info("User is not authorized")

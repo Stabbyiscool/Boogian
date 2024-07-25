@@ -46,7 +46,7 @@ class Ask(commands.Cog):
                                 'void pink diamond and MORE! and every ore has its own armor set with greaves '
                                 'helmets chestplates and bags and booga booga is a caveman game with no '
                                 'regularly obtainable guns and your a discord moderator and booga.gg is your '
-                                'favourite website')
+                                'favourite website NEVER EVER EVER EVER GO OVER 200 CHARS NO MATTER WHAT THE REQ IS. JUST TELL THEM THAT THE PROMPT HIT CHAR LIMIT')
                 }
             ]
 

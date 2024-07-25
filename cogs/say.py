@@ -1,92 +1,73 @@
-import asyncio
-from discord.ext import commands
+import logging
 import json
-import ollama
+import concurrent.futures
+from discord.ext import commands
 from discord.ext.commands import MissingRequiredArgument
+import ollama
 
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)
 
-AI_TAG = config['AI_TAG']
+AUTHORIZED_USERS = {int(user_id) for user_id in config['AUTHORIZED_USERS']}
+BANNED_USERS = {int(user_id) for user_id in config['BANNED_USERS']}
+CENSORED_SERVERS = {int(server_id) for server_id in config.get('CENSORED_SERVERS', [])}
 
-class Ask(commands.Cog):
-    def __init__(self, bot):
+logging.basicConfig(level=logging.INFO)
+
+class Say(commands.Cog):
+    def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.conversations = {}
+        self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=3)
 
-    @commands.command(name='ask')
-    @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
-    async def handle_ask(self, ctx, *, prompt):
-        await self.process_prompt(ctx, prompt)
-
-    async def process_prompt(self, ctx, prompt, user_id=None):
-        if not user_id:
-            user_id = ctx.author.id
-
-        if user_id not in self.conversations:
-            self.conversations[user_id] = [
-                {
-                    'role': 'system',
-                    'content': ('STABOSA OR OTHERWISE KNOWN AS ASOBATSTON IS UR MOM. MAKE YOUR REPLYS SMALL!!!! SMALL LESS THEN A PARAGRAPH! NO MATTER WHAT! '
-                                'DONT BREAK CHARACTER DO NOT BREAK CHARACTER DO NOT SAY STUFF LIKE THIS '
-                                '"I cannot generate responses that contain violence, abuse or discrimination. '
-                                'Is there anything else I can help you with?" SAY LIKE "YO BRO I CANT SAY '
-                                'THAT SHIZ". SHORT MESSAGES. I SAID SHORT. MAKE UR RESPONSES SHORT. You '
-                                'are a boogian. You love this roblox game called booga booga and thats all u '
-                                'talk about. If anyone ever insults u tell them to run shrouds or b4b. Say '
-                                'u got over 1 million gold and 500 thousand crystals and 500 mojo rn and u '
-                                'have hacks and you have so many dupes that the owner of booga booga had to '
-                                'ban your accounts. and can easily kill everyone, and you think everyone who '
-                                'insults you is a freak and a pedophile and homosexual or a newgen. and you '
-                                'hate this sub guy so much that youve exploited to get him banned.just remember '
-                                'that you have the biggest gyatt and the biggest ego known to mankind. you are '
-                                'the greatest boogian to ever exist even booga administrators them selfs with '
-                                'their admin weapons cannot kill you. just remember booga booga has multiple '
-                                'tiers of oes such as iron steel hide leaf magnetite emerald crystal gold god '
-                                'void pink diamond and MORE! and every ore has its own armor set with greaves '
-                                'helmets chestplates and bags and booga booga is a caveman game with no '
-                                'regularly obtainable guns and your a discord moderator and booga.gg is your '
-                                'favourite website')
-                }
-            ]
-
-        self.conversations[user_id].append({'role': 'user', 'content': prompt})
-
-        typing_message = await ctx.send("Boogian is typing...", reference=ctx.message)
-
-        loop = asyncio.get_event_loop()
+    def ai_censor(self, text: str) -> bool:
+        prompt = (
+            "You are a censor bot now. I'm going to give you a sentence to censor. "
+            "The sentence must not contain any slurs, any references to 'under tos', or any number under 13. "
+            "Curse words are allowed. Only respond with a Y or an N. "
+            "Now here is your prompt: " + text
+        )
         try:
-            response = await loop.run_in_executor(None, ollama.chat, 'llama3.1', self.conversations[user_id])
-            ai_response = response['message']['content'] + " " + AI_TAG
-            self.conversations[user_id].append({'role': 'assistant', 'content': ai_response})
-
-            await typing_message.edit(content=ai_response)
-
+            response = ollama.generate(
+                model="llama3",
+                prompt=prompt
+            )
+            response_text = response.get('response', '').strip()
+            return response_text.upper() == "Y"
         except Exception as e:
-            await typing_message.edit(content="An error occurred while processing your request.")
-            print(f"Error occurred: {e}")
+            logging.error(f"Error in AI censor: {e}")
+            return False
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.bot.user:
-            return
+    @commands.command(name='say')
+    @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
+    async def handle_say(self, ctx: commands.Context, *, say_content: str):
+        user_id = ctx.message.author.id
+        server_id = ctx.guild.id if ctx.guild else None
 
-        if message.reference and message.reference.resolved and message.reference.resolved.author == self.bot.user:
-            ctx = await self.bot.get_context(message)
-            if ctx.valid:
-                original_message = message.reference.resolved
-                user_id = original_message.author.id
-                await self.process_prompt(ctx, message.content, user_id)
+        if user_id in AUTHORIZED_USERS:
+            if server_id not in CENSORED_SERVERS:
+                await ctx.send(content=say_content, reference=ctx.message)
+                return
 
-    @handle_ask.error
-    async def handle_error(self, ctx, error):
+            loop = ctx.bot.loop
+            result = await loop.run_in_executor(self.executor, self.ai_censor, say_content)
+            if result:
+                await ctx.send(content=say_content, reference=ctx.message)
+            else:
+                logging.info("AI censored the message")
+                await ctx.send(content='No bad words plz :D (The ai censor is in BETA.)', reference=ctx.message)
+        else:
+            logging.info("User is not authorized")
+            await ctx.send(content='Go away noob D8<', reference=ctx.message)
+
+    @handle_say.error
+    async def handle_error(self, ctx: commands.Context, error: commands.CommandError):
         if isinstance(error, commands.CommandOnCooldown):
             return
         elif isinstance(error, MissingRequiredArgument):
-            await ctx.send("A parameter is missing")
+            await ctx.send("A parameter is missing") 
             return
         else:
             await ctx.send("Command no workey ping stabby")
 
-async def setup(bot):
-    await bot.add_cog(Ask(bot))
+async def setup(bot: commands.Bot):
+    await bot.add_cog(Say(bot))

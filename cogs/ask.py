@@ -65,18 +65,6 @@ class Ask(commands.Cog):
             await typing_message.edit(content="An error occurred while processing your request.")
             print(f"Error occurred: {e}")
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.bot.user:
-            return
-
-        if message.reference and message.reference.resolved and message.reference.resolved.author == self.bot.user:
-            ctx = await self.bot.get_context(message)
-            if ctx.valid:
-                original_message = message.reference.resolved
-                user_id = original_message.author.id
-                await self.process_prompt(ctx, message.content, user_id)
-
     @handle_ask.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):

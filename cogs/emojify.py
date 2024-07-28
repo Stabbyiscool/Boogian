@@ -1,10 +1,12 @@
 import discord
 import json
 from discord.ext import commands
+from discord.ext.commands import MissingRequiredArgument
+
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)
 
-class emojify(commands.Cog):
+class Emojify(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.emoji_dict = {

@@ -29,7 +29,7 @@ class Say(commands.Cog):
         )
         try:
             response = ollama.generate(
-                model="llama3-chatqa",
+                model="llama3",
                 prompt=prompt
             )
             response_text = response.get('response', '').strip()

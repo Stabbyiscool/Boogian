@@ -13,8 +13,7 @@ AUTHORIZED_USERS = [int(user_id) for user_id in config['AUTHORIZED_USERS']]
 BANNED_USERS = [int(user_id) for user_id in config['BANNED_USERS']]
 COOLDOWN_TIME = config['COOLDOWN_TIME']
 
-client = commands.Bot(command_prefix='b.')
-
+bot = commands.Bot(command_prefix=["b.","B."])
 client.remove_command('help')
 
 @client.event

@@ -23,7 +23,7 @@ class Say(commands.Cog):
         prompt = (
             "You are a censor bot now. I'm going to give you a sentence to censor. "
             "The sentence must not contain any slurs, any references to 'under tos', or any number under 13. "
-            "Curse words are allowed. Only respond with a Y or an N. "
+            "Curse words are allowed. ONLY CENSOR IF ITS DEATH THREATS OR SLURS OR IF THEY MAKE THE BOT SAY THEY ARE UNDER 13 OR ANY AGE UNDER 13 OR UNDER TOS. Only respond with a Y or an N. "
             "Now here is your prompt: " + text
         )
         try:

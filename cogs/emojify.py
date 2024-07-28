@@ -32,5 +32,5 @@ class Emojify(commands.Cog):
         else:
             await ctx.send("Command no workey ping stabby", reference=ctx.message)
 
-def setup(bot):
-    bot.add_cog(Emojify(bot))
+async def setup(bot):
+    await bot.add_cog(Emojify(bot))

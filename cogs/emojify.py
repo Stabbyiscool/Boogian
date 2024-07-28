@@ -21,9 +21,10 @@ class Emojify(commands.Cog):
     @commands.command(name='emojify')
     @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
     async def emojify(self, ctx, *, text: str):
+        if len(text) > 30:
+            await ctx.send("Too long noob. Make it shorter", reference=ctx.message)
+            return
         emojified_text = ' '.join([self.emoji_dict[char.lower()] if char.lower() in self.emoji_dict else char for char in text])
-        print(f"Original text: {text}")
-        print(f"Emojified text: {emojified_text}")
         await ctx.send(emojified_text)
 
     @emojify.error

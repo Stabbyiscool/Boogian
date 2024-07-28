@@ -25,7 +25,8 @@
       "b.gay <user>": "Generates a gayness percentage for the mentioned user.",
       "b.tts <message>": "Generates a tts message.",
       "b.pp <user>": "Generates a random pp size",
-      "b.buildaboogian": "Offical github repo"
+      "b.buildaboogian": "Offical github repo",
+      "b.emojify": "Replaces the chars in your text with emojis"
     },
     "COOLDOWN_TIME": 4,
     "CENSORED_SERVERS": [

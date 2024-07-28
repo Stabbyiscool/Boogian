@@ -1,4 +1,5 @@
 import discord
+import json
 from discord.ext import commands
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)

@@ -12,7 +12,7 @@ class GayMeter(commands.Cog):
 
     @commands.command(name='gay')
     @commands.cooldown(rate=1, per=config['COOLDOWN_TIME'], type=commands.BucketType.user)
-    async def handle_gay_meter(self, ctx):
+    async def gaymeter(self, ctx):
         if ctx.message.mentions:
             target_user = ctx.message.mentions[0]
             special_users = [627905328075505683, 1085537701035524187, 1028248062130409572]
@@ -27,7 +27,7 @@ class GayMeter(commands.Cog):
             response_message = f"{target_user.mention} is {gayness}% gay! 🌈"
             await ctx.send(content=response_message, reference=ctx.message)
 
-    @handle_gay_meter.error
+    @gaymeter.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             return

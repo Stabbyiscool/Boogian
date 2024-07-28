@@ -4,7 +4,7 @@ from discord.ext import commands
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)
 
-class Emojify(commands.Cog):
+class emojify(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.emoji_dict = {
@@ -33,4 +33,4 @@ class Emojify(commands.Cog):
             await ctx.send("Command no workey ping stabby", reference=ctx.message)
 
 async def setup(bot):
-    await bot.add_cog(Emojify(bot))
+    await bot.add_cog(emojify(bot))

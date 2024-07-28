@@ -25,7 +25,7 @@ class Emojify(commands.Cog):
             await ctx.send("Too long noob. Make it shorter", reference=ctx.message)
             return
         emojified_text = ' '.join([self.emoji_dict[char.lower()] if char.lower() in self.emoji_dict else char for char in text])
-        await ctx.send(emojified_text)
+        await ctx.send(emojified_text, reference=ctx.message)
 
     @emojify.error
     async def handle_error(self, ctx, error):

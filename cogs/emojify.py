@@ -6,7 +6,7 @@ from discord.ext.commands import MissingRequiredArgument
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)
 
-class Emojify(commands.Cog):
+class emojify(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.emoji_dict = {

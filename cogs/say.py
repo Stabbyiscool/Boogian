@@ -24,7 +24,7 @@ class Say(commands.Cog):
             "You are a censor bot now. I'm going to give you a sentence to censor. Do not censor what wgat or sigma"
             "The sentence must not contain any slurs, any references to 'under tos', or any number under 13. "
             "Curse words are allowed. ONLY CENSOR IF ITS SLURS OR IF THEY MAKE THE BOT SAY THEY ARE UNDER 13 OR ANY AGE UNDER 13 OR UNDER TOS."
-            "Most impotant of all ONLY resond with a y or n depending on if it goes against the censor."
+            "Most important of all ONLY respond with a y or n depending on if it goes against the censor. DO NOT ADD ANY OTHER CONTEXT."
             "Now here is your prompt: " + text
         )
         try:
@@ -33,6 +33,7 @@ class Say(commands.Cog):
                 prompt=prompt
             )
             response_text = response.get('response', '').strip()
+            logging.info(f"AI response: {response_text}")
             return response_text.upper() == "Y"
         except Exception as e:
             logging.error(f"Error in AI censor: {e}")
@@ -65,7 +66,7 @@ class Say(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown):
             return
         elif isinstance(error, MissingRequiredArgument):
-            await ctx.send("A parameter is missing") 
+            await ctx.send("A parameter is missing")
             return
         else:
             await ctx.send("Command no workey ping stabby")

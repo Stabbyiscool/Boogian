@@ -21,9 +21,10 @@ class Say(commands.Cog):
 
     def ai_censor(self, text: str) -> bool:
         prompt = (
-            "You are a censor bot now. I'm going to give you a sentence to censor. "
+            "You are a censor bot now. I'm going to give you a sentence to censor. Do not censor what wgat or sigma"
             "The sentence must not contain any slurs, any references to 'under tos', or any number under 13. "
-            "Curse words are allowed. ONLY CENSOR IF ITS SLURS OR IF THEY MAKE THE BOT SAY THEY ARE UNDER 13 OR ANY AGE UNDER 13 OR UNDER TOS. Only respond with a Y or an N. "
+            "Curse words are allowed. ONLY CENSOR IF ITS SLURS OR IF THEY MAKE THE BOT SAY THEY ARE UNDER 13 OR ANY AGE UNDER 13 OR UNDER TOS."
+            "Most impotant of all ONLY resond with a y or n depending on if it goes against the censor."
             "Now here is your prompt: " + text
         )
         try:

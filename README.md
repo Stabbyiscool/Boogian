@@ -8,6 +8,8 @@ Best discord self bot (For fun) :D
 
 This bot is pretty big (Cause of the ai's) Its about 5 gigs
 
+This could work as a discord bot but is not intended (This uses discord.py-self which is a fork of discord-py but for discord self bots.)
+
 **IF YOU ARE GONNA USE THIS PLEASE READ "HOW TO USE" AND DONT TRY TO GET HELP FROM ME!!!!!**
 # How to setup
 

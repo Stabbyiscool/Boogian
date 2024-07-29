@@ -45,7 +45,7 @@ virtualenv venv
 venv\Scripts\activate
 ```
 
-- On macOS and Linux:
+- On macos 🤮 and Linux 👑:
 
 ```bash
 source venv/bin/activate

@@ -64,7 +64,7 @@ class Say(commands.Cog):
     @handle_say.error
     async def handle_error(self, ctx: commands.Context, error: commands.CommandError):
         if isinstance(error, commands.CommandOnCooldown):
-            return
+            pass
         elif isinstance(error, MissingRequiredArgument):
             await ctx.send("A parameter is missing")
             return

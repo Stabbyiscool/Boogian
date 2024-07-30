@@ -42,9 +42,9 @@ class PP(commands.Cog):
     @pp.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            return
+            pass
         elif isinstance(error, MissingRequiredArgument):
-            await ctx.send("A parameter is missing") 
+            await ctx.send("A parameter is missing")
             return
         else:
             await ctx.send("Command no workey ping stabby")

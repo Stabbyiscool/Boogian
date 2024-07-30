@@ -3,7 +3,7 @@
 </p>
 
 
-# Boogian V6
+# Boogian V6.5
 Best discord self bot (For fun) :D
 
 This bot is pretty big (Cause of the ai's) Its about 5 gigs

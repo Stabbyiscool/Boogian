@@ -20,7 +20,7 @@ class Ping(commands.Cog):
     @ping.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            return
+            pass
 
 async def setup(bot):
     await bot.add_cog(Ping(bot))

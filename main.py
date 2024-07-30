@@ -1,9 +1,8 @@
 import discord
 from discord.ext import commands
 import json
-import time
 import os
-from discord.ext.commands import MissingRequiredArgument
+from discord.ext.commands import CommandOnCooldown, CommandNotFound
 
 with open('configs.json', 'r') as config_file:
     config = json.load(config_file)
@@ -43,9 +42,11 @@ async def load_cogs():
 
 @client.event
 async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        return  
+    if isinstance(error, CommandOnCooldown):
+        pass
+    elif isinstance(error, CommandNotFound):
+        return 
     else:
-        print(f'Error occurred: {error}') 
+        print(f'Error occurred: {error}')
 
 client.run(TOKEN)

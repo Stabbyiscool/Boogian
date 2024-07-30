@@ -153,7 +153,7 @@ class Auth(commands.Cog):
     @handle_restart.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            return
+            pass
         elif isinstance(error, commands.CheckFailure):
             await ctx.send("You are not SU.")
         elif isinstance(error, MissingRequiredArgument):

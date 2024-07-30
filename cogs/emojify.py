@@ -30,12 +30,12 @@ class Emojify(commands.Cog):
     @emojify.error
     async def handle_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            return
+            pass
         elif isinstance(error, MissingRequiredArgument):
-            await ctx.send("A parameter is missing", reference=ctx.message)
+            await ctx.send("A parameter is missing")
             return
         else:
-            await ctx.send("Command no workey ping stabby", reference=ctx.message)
+            await ctx.send("Command no workey ping stabby")
 
 async def setup(bot):
     await bot.add_cog(Emojify(bot))

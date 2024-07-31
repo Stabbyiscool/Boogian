@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="testi/LittlebigBoogian.png" alt="Boogian Logo">
+  <img src="testi/LittlebigBoogian.png" alt="Boogian Logo" width="300" hight="100">
 </p>
 
 

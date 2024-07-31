@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1196661453386690652/1265491167001313413/image.png?ex=66a1b3fd&is=66a0627d&hm=f5b65decb17a18ece42db1541eaf935bae76568d757ddb9e8be7afcd26531402&" alt="Boogian Logo">
+  <img src="testi/LittlebigBoogian.png" alt="Boogian Logo">
 </p>
 
 

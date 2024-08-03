@@ -35,7 +35,8 @@ class PP(commands.Cog):
             "8================D", 
             "8-D", 
             "Its too small it can't even be displayed.",
-            "Its too big it can't even be displayed."
+            "Its too big it can't even be displayed.",
+            "8♾D"
         ]
         pp_size = random.choice(pp_presets)
         await ctx.send(f"{user.mention}'s pp\n\n{pp_size}")
